@@ -6,7 +6,7 @@
 /*   By: diolivei <diolivei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 14:11:42 by diolivei          #+#    #+#             */
-/*   Updated: 2024/08/07 15:55:39 by diolivei         ###   ########.fr       */
+/*   Updated: 2024/08/08 17:40:02 by diolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,8 @@ int	ft_printf(const char *format, ...);
 char	*get_next_line(int fd);
 
 // ----------- PUSH_SWAP -------------
-void	ft_swap(int n1, int n2);
-void	ft_push(int *stacka, int *stackb);
+void	ft_swap(int *n1, int *n2);
+void	ft_push(int *stack1, int *stack2);
 void	ft_rotate(int *stack);
 void	ft_reverse(int *stack);
 

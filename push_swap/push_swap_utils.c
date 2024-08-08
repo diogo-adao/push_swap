@@ -6,8 +6,17 @@
 /*   By: diolivei <diolivei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 15:43:43 by diolivei          #+#    #+#             */
-/*   Updated: 2024/08/07 15:43:55 by diolivei         ###   ########.fr       */
+/*   Updated: 2024/08/08 18:58:18 by diolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
+
+void ft_swap(int *n1, int *n2)
+{
+	int tmp;
+
+	tmp = *n1;
+	*n1 = *n2;
+	*n2 = tmp;
+}
