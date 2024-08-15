@@ -37,22 +37,3 @@ int	ft_atoi(const char *str)
 	}
 	return (sign * res);
 }
-
-/* int main(int argc, char *argv[])
-{
-    int i = 1;
-
-    if (argc < 2)
-    {
-        printf("Provide arguments.\n");
-        return 0;
-    }
-
-    while (i < argc)
-    {
-        // printf("%d\n", atoi(argv[i]));
-        printf("%d\n", atoi(argv[i]));
-        i++;
-    }
-    return (0);
-} */

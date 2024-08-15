@@ -54,17 +54,3 @@ int	ft_printf(const char *format, ...)
 	va_end(ap);
 	return (count);
 }
-
-/* # include <stdio.h>
-int main()
-{
-	//void *ptr = (int *)0;
-	int count = 0;
-	int mycount = 0;
-	ft_printf("------------------------\n");
-    count = printf(" NULL %% NULL ");
-    mycount = ft_printf(" NULL %% NULL ");
-	printf("count: %d || my count: %d\n", count, mycount);
-	ft_printf("------------------------\n");
-    return (0);
-} */

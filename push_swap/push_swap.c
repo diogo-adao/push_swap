@@ -12,39 +12,39 @@
 
 #include "libft/libft.h"
 
-void push_swap(int *stacka, int *stackb)
+void push_swap(int *stacka, int *size_a, int *stackb, int *size_b)
 {
-	//ft_swap(&stacka[0], &stacka[1]);
+	//ft_swap(&stacka[0], &stacka[1], size_a);
+	//ft_push(stacka, size_a, stackb, size_b);
 }
 
 int main(int argc, char *argv[])
 {
 	if (argc > 1)
 	{
-		int size = 1;
-		while (argv[size])
-			size++;
-		int stacka[size - 1];
-		int stackb[size - 1];
-		stackb[0] = '\0';
+		int size = argc - 1;
+		int stacka[size];
+		int stackb[size];
+		int size_a = size;
+		int size_b = 0;
 
 		int i = 0;
-		while (i < size - 1)
+		while (i < size)
 		{
 			stacka[i] = ft_atoi(argv[i + 1]);
 			i++;
 		}
-		push_swap(stacka, stackb);
+		push_swap(stacka, &size_a, stackb, &size_b);
 		i = 0;
 		ft_printf("stack A:\n");
-		while (stacka[i])
+		while (i < size_a)
 		{
 			ft_printf("%d\n", stacka[i]);
 			i++;
 		}
 		i = 0;
 		ft_printf("stack B:\n");
-		while (stackb[i])
+		while (i < size_b)
 		{
 			ft_printf("%d\n", stackb[i]);
 			i++;
