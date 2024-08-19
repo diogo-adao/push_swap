@@ -16,6 +16,8 @@ void push_swap(int *stacka, int *size_a, int *stackb, int *size_b)
 {
 	//ft_swap(&stacka[0], &stacka[1], size_a);
 	//ft_push(stacka, size_a, stackb, size_b);
+	//ft_rotate(stacka, size_a);
+	//ft_reverse(stacka, size_a);
 }
 
 int main(int argc, char *argv[])

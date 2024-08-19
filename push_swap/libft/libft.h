@@ -32,7 +32,7 @@ int	ft_printf(const char *format, ...);
 // ----------- PUSH_SWAP -------------
 void	ft_swap(int *n1, int *n2, int *size);
 void	ft_push(int *stack1, int *size_1, int *stack2, int *size_2);
-void	ft_rotate(int *stack);
-void	ft_reverse(int *stack);
+void	ft_rotate(int *stack, int *size);
+void	ft_reverse(int *stack, int *size);
 
 #endif
