@@ -20,6 +20,19 @@ void push_swap(int *stacka, int *size_a, int *stackb, int *size_b)
 	//ft_reverse(stacka, size_a);
 }
 
+int is_error(char *arg)
+{
+	// ERRORS
+	int i = 0;
+	while (arg[i])
+	{
+		if (arg[i] < '0' || arg[i] > '9')
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
 int main(int argc, char *argv[])
 {
 	if (argc > 1)
@@ -33,6 +46,8 @@ int main(int argc, char *argv[])
 		int i = 0;
 		while (i < size)
 		{
+			if (is_error(argv[i + 1]))
+				return (write(2, "Error\n", 6));
 			stacka[i] = ft_atoi(argv[i + 1]);
 			i++;
 		}
@@ -51,7 +66,6 @@ int main(int argc, char *argv[])
 			ft_printf("%d\n", stackb[i]);
 			i++;
 		}
-	} else
-		write(2, "Error\n", 6);
+	}
 	return (0);
 }
