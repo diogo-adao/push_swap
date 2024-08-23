@@ -22,15 +22,36 @@ void push_swap(int *stacka, int *size_a, int *stackb, int *size_b)
 
 int is_error(char *arg)
 {
-	// ERRORS
 	int i = 0;
-	while (arg[i])
-	{
-		if (arg[i] < '0' || arg[i] > '9')
-			return (1);
-		i++;
-	}
-	return (0);
+	int overflow = 0;
+    int n;
+
+	// Check for spaces and signs
+    while (arg[i] == ' ' || arg[i] == '\t' || arg[i] == '\r'
+        || arg[i] == '\f' || arg[i] == '\v' || arg[i] == '\n')
+        i++;
+
+    if (arg[i] == '-' || arg[i] == '+')
+        i++;
+
+    // If the string ends after the sign, return error
+    if (!arg[i])
+        return 1;
+        
+	// Return error if non-digit found
+    while (arg[i])
+    {
+        if (arg[i] < '0' || arg[i] > '9')
+            return 1;
+        i++;
+    }
+
+    // Check if the number is within the valid range
+    n = ft_atoi(arg, &overflow);
+	if (overflow)
+		return (1);
+
+    return 0;
 }
 
 int main(int argc, char *argv[])
@@ -48,7 +69,7 @@ int main(int argc, char *argv[])
 		{
 			if (is_error(argv[i + 1]))
 				return (write(2, "Error\n", 6));
-			stacka[i] = ft_atoi(argv[i + 1]);
+			stacka[i] = ft_atoi(argv[i + 1], NULL);
 			i++;
 		}
 		push_swap(stacka, &size_a, stackb, &size_b);
