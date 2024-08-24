@@ -14,13 +14,13 @@
 
 void push_swap(int *stacka, int *size_a, int *stackb, int *size_b)
 {
-	//ft_swap(&stacka[0], &stacka[1], size_a);
-	//ft_push(stacka, size_a, stackb, size_b);
-	//ft_rotate(stacka, size_a);
-	//ft_reverse(stacka, size_a);
+	/* ft_swap(&stacka[0], &stacka[1], size_a);
+	ft_push(stacka, size_a, stackb, size_b);
+	ft_rotate(stacka, size_a);
+	ft_reverse(stacka, size_a); */
 }
 
-int is_error(char *arg)
+int is_error(char *arg, int *stacka, int size)
 {
 	int i;
 	int overflow;
@@ -41,6 +41,8 @@ int is_error(char *arg)
     n = ft_atoi(arg, &overflow);
 	if (overflow)
 		return (1);
+	if (is_duplicate(stacka, size, n))
+		return (1);
     return 0;
 }
 
@@ -57,7 +59,7 @@ int main(int argc, char *argv[])
 		int i = 0;
 		while (i < size)
 		{
-			if (is_error(argv[i + 1]))
+			if (is_error(argv[i + 1], stacka, i))
 				return (write(2, "Error\n", 6));
 			stacka[i] = ft_atoi(argv[i + 1], NULL);
 			i++;

@@ -35,5 +35,6 @@ void	ft_swap(int *n1, int *n2, int *size);
 void	ft_push(int *stack1, int *size_1, int *stack2, int *size_2);
 void	ft_rotate(int *stack, int *size);
 void	ft_reverse(int *stack, int *size);
+int     is_duplicate(int *arr, int size, int n);
 
 #endif
