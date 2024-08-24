@@ -28,8 +28,9 @@ void	ft_push(int *stack1, int *size_1, int *stack2, int *size_2)
 {
 	if (*size_1 > 0)
 	{
-		int i = *size_2;
+		int i;
 
+		i = *size_2;
 		while (i > 0)
 		{
 			stack2[i] = stack2[i - 1];
@@ -52,9 +53,11 @@ void	ft_rotate(int *stack, int *size)
 {
 	if (*size > 1)
 	{
-		int i = 0;
-		int tmp = stack[i];
+		int i;
+		int tmp;
 
+		i = 0;
+		tmp = stack[i];
 		while (i < *size - 1)
 		{
 			stack[i] = stack[i + 1];
@@ -68,9 +71,11 @@ void	ft_reverse(int *stack, int *size)
 {
 	if (*size > 1)
 	{
-		int i = *size;
-		int tmp = stack[i - 1];
+		int i;
+		int tmp;
 
+		i = *size;
+		tmp = stack[i - 1];
 		while (i > 0)
 		{
 			stack[i] = stack[i - 1];

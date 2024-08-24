@@ -52,7 +52,6 @@ int	ft_putnbr(long n, int base)
 		count += ft_putchar('2');
 		n = 147483648;
 	}
-
 	if (n < 0)
 	{
 		count += ft_putchar('-');
