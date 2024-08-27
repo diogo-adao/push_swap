@@ -6,7 +6,7 @@
 /*   By: diolivei <diolivei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 16:37:07 by diolivei          #+#    #+#             */
-/*   Updated: 2024/08/27 15:40:25 by diolivei         ###   ########.fr       */
+/*   Updated: 2024/08/27 16:22:17 by diolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,7 @@
 
 void	push_swap(int *stacka, int *size_a, int *stackb, int *size_b)
 {
-	/* ft_swap(&stacka[0], &stacka[1], size_a);
-	ft_push(stacka, size_a, stackb, size_b);
-	ft_rotate(stacka, size_a);
-	ft_reverse(stacka, size_a); */
+
 }
 
 int	is_error(char *arg, int *stacka, int size)
@@ -35,7 +32,7 @@ int	is_error(char *arg, int *stacka, int size)
 	while (arg[i])
 	{
 		if (arg[i] < '0' || arg[i] > '9')
-			return 1;
+			return (1);
 		i++;
 	}
 	n = ft_atoi(arg, &overflow);
@@ -48,20 +45,20 @@ int	is_error(char *arg, int *stacka, int size)
 
 int	main(int argc, char *argv[])
 {
-	int	size;
-	int	stacka[size];
-	int	stackb[size];
+	int	*stacka;
+	int	*stackb;
 	int	size_a;
 	int	size_b;
 	int	i;
 
-	size = argc - 1;
-	size_a = size;
+	stacka = (int *)malloc((argc - 1) * sizeof(int));
+	stackb = (int *)malloc((argc - 1) * sizeof(int));
+	size_a = argc - 1;
 	size_b = 0;
 	i = 0;
 	if (argc > 1)
 	{
-		while (i < size)
+		while (i < argc - 1)
 		{
 			if (is_error(argv[i + 1], stacka, i))
 				return (write(2, "Error\n", 6));
@@ -84,5 +81,7 @@ int	main(int argc, char *argv[])
 			i++;
 		}
 	}
+	free (stacka);
+	free (stackb);
 	return (0);
 }
