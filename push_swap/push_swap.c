@@ -6,7 +6,7 @@
 /*   By: diolivei <diolivei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 16:37:07 by diolivei          #+#    #+#             */
-/*   Updated: 2024/08/27 16:22:17 by diolivei         ###   ########.fr       */
+/*   Updated: 2024/08/27 18:26:14 by diolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,3 +85,5 @@ int	main(int argc, char *argv[])
 	free (stackb);
 	return (0);
 }
+
+// https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a
