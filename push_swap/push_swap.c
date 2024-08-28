@@ -6,7 +6,7 @@
 /*   By: diolivei <diolivei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 16:37:07 by diolivei          #+#    #+#             */
-/*   Updated: 2024/08/27 18:26:14 by diolivei         ###   ########.fr       */
+/*   Updated: 2024/08/28 16:17:57 by diolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,11 @@
 
 void	push_swap(int *stacka, int *size_a, int *stackb, int *size_b)
 {
-
+	if (*size_a == 3)
+	{
+		print_sort_3(stacka, size_a);
+		sort_3(stacka, size_a);
+	}
 }
 
 int	is_error(char *arg, int *stacka, int size)
@@ -85,5 +89,3 @@ int	main(int argc, char *argv[])
 	free (stackb);
 	return (0);
 }
-
-// https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a

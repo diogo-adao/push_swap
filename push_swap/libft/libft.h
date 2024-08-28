@@ -6,7 +6,7 @@
 /*   By: diolivei <diolivei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 14:11:42 by diolivei          #+#    #+#             */
-/*   Updated: 2024/08/27 14:47:37 by diolivei         ###   ########.fr       */
+/*   Updated: 2024/08/28 15:51:16 by diolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,9 @@ void	ft_push(int *stack1, int *size_1, int *stack2, int *size_2);
 void	ft_rotate(int *stack, int *size);
 void	ft_reverse(int *stack, int *size);
 int		is_duplicate(int *arr, int size, int n);
+void	sort_3(int *stack, int *size);
+int		sort_3_biggest(int *stack, int *size);
+void	print_sort_3(int *stack, int *size);
+int		sort_3_cases(int *stack, int *size);
 
 #endif
