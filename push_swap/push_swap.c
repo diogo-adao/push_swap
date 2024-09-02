@@ -14,6 +14,10 @@
 
 void	push_swap(int *stacka, int *size_a, int *stackb, int *size_b)
 {
+	if (is_sorted(stacka, size_a))
+		return ;
+	if (*size_a == 2)
+		sort_2(stacka, size_a);
 	if (*size_a == 3)
 	{
 		print_sort_3(stacka, size_a);

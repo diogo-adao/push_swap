@@ -40,5 +40,7 @@ void	sort_3(int *stack, int *size);
 int		sort_3_biggest(int *stack, int *size);
 void	print_sort_3(int *stack, int *size);
 int		sort_3_cases(int *stack, int *size);
+void    sort_2(int *stack, int *size);
+int     is_sorted(int *stack, int *size);
 
 #endif
