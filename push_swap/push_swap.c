@@ -6,7 +6,7 @@
 /*   By: diolivei <diolivei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 16:37:07 by diolivei          #+#    #+#             */
-/*   Updated: 2024/08/28 16:17:57 by diolivei         ###   ########.fr       */
+/*   Updated: 2024/09/04 15:39:16 by diolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,7 @@ void	push_swap(int *stacka, int *size_a, int *stackb, int *size_b)
 	if (*size_a == 2)
 		sort_2(stacka, size_a);
 	if (*size_a == 3)
-	{
-		print_sort_3(stacka, size_a);
 		sort_3(stacka, size_a);
-	}
 }
 
 int	is_error(char *arg, int *stacka, int size)

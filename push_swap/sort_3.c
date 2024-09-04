@@ -6,16 +6,39 @@
 /*   By: diolivei <diolivei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 14:37:00 by diolivei          #+#    #+#             */
-/*   Updated: 2024/08/28 15:54:58 by diolivei         ###   ########.fr       */
+/*   Updated: 2024/09/04 15:41:59 by diolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
 
+int	sort_3_biggest(int *stack, int *size)
+{
+	int	i;
+	int	n;
+
+	i = 0;
+	if (stack[i] > stack[i + 1])
+	{
+		if (stack[i] > stack[i + 2])
+			n = stack[i];
+		else
+			n = stack[i + 2];
+	}
+	else
+	{
+		if (stack[i + 1] > stack[i + 2])
+			n = stack[i + 1];
+		else
+			n = stack[i + 2];
+	}
+	return (n);
+}
+
 int	sort_3_cases(int *stack, int *size)
 {
 	int	cases;
-	int n;
+	int	n;
 
 	n = sort_3_biggest(stack, size);
 	cases = 0;
@@ -41,12 +64,10 @@ int	sort_3_cases(int *stack, int *size)
 	return (cases);
 }
 
-void	print_sort_3(int *stack, int *size)
+int	print_sort_3(int *stack, int *size)
 {
-	int	n;
 	int	cases;
 
-	n = sort_3_biggest(stack, size);
 	cases = sort_3_cases(stack, size);
 	if (cases == 1)
 	{
@@ -64,15 +85,14 @@ void	print_sort_3(int *stack, int *size)
 		ft_printf("rra\n");
 	else if (cases == 5)
 		ft_printf("sa\n");
+	return (cases);
 }
 
 void	sort_3(int *stack, int *size)
 {
-	int	n;
 	int	cases;
 
-	n = sort_3_biggest(stack, size);
-	cases = sort_3_cases(stack, size);
+	cases = print_sort_3(stack, size);
 	if (cases == 1)
 	{
 		ft_swap(&stack[0], &stack[1], size);
