@@ -30,14 +30,4 @@ int		ft_putupper(unsigned int n, int base);
 int		ft_putpointer(unsigned long n, int base);
 int		ft_printf(const char *format, ...);
 
-// ----------- PUSH_SWAP -------------
-void	ft_swap(int *n1, int *n2, int *size);
-void	ft_push(int *stack1, int *size_1, int *stack2, int *size_2);
-void	ft_rotate(int *stack, int *size);
-void	ft_reverse(int *stack, int *size);
-int		is_duplicate(int *arr, int size, int n);
-int		is_sorted(int *stack, int *size);
-void	sort_3(int *stack, int *size);
-void	sort_2(int *stack, int *size);
-
 #endif
