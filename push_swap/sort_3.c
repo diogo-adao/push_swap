@@ -6,13 +6,13 @@
 /*   By: diolivei <diolivei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 14:37:00 by diolivei          #+#    #+#             */
-/*   Updated: 2024/09/04 15:41:59 by diolivei         ###   ########.fr       */
+/*   Updated: 2024/09/17 14:35:39 by diolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	sort_3_biggest(int *stack, int *size)
+int	sort_3_biggest(int *stack)
 {
 	int	i;
 	int	n;
@@ -35,12 +35,12 @@ int	sort_3_biggest(int *stack, int *size)
 	return (n);
 }
 
-int	sort_3_cases(int *stack, int *size)
+int	sort_3_cases(int *stack)
 {
 	int	cases;
 	int	n;
 
-	n = sort_3_biggest(stack, size);
+	n = sort_3_biggest(stack);
 	cases = 0;
 	if (stack[0] == n)
 	{
@@ -64,11 +64,11 @@ int	sort_3_cases(int *stack, int *size)
 	return (cases);
 }
 
-int	print_sort_3(int *stack, int *size)
+int	print_sort_3(int *stack)
 {
 	int	cases;
 
-	cases = sort_3_cases(stack, size);
+	cases = sort_3_cases(stack);
 	if (cases == 1)
 	{
 		ft_printf("sa\n");
@@ -92,7 +92,7 @@ void	sort_3(int *stack, int *size)
 {
 	int	cases;
 
-	cases = print_sort_3(stack, size);
+	cases = print_sort_3(stack);
 	if (cases == 1)
 	{
 		ft_swap(&stack[0], &stack[1], size);
