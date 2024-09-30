@@ -6,7 +6,7 @@
 /*   By: diolivei <diolivei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 14:01:08 by diolivei          #+#    #+#             */
-/*   Updated: 2024/09/17 14:58:42 by diolivei         ###   ########.fr       */
+/*   Updated: 2024/09/30 19:16:17 by diolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ t_cost calculate_cost_for_stack_a(int index_a, int *size_a)
     if (index_a <= *size_a / 2)
     {
         info.cost = index_a;
-        if (index_a > 0)
-            info.operation = 'u';
+        info.operation = 'u';
     }
     else
     {
@@ -39,6 +38,7 @@ t_cost calculate_cost_for_stack_b(int value_a, int *stackb, int *size_b)
 
     index_b = 0;
     tmp = INT_MAX;
+	closest_index = -1;
     if ((value_a > stackb[find_biggest(stackb, size_b)]) || (value_a < stackb[find_smallest(stackb, size_b)]))
         info = cost_for_biggest(find_biggest(stackb, size_b), size_b);
     else
@@ -46,7 +46,7 @@ t_cost calculate_cost_for_stack_b(int value_a, int *stackb, int *size_b)
         while (index_b < *size_b)
         {
             if (value_a - stackb[index_b] > 0)
-                closest_index = find_closer_index(value_a, stackb[index_b], index_b, &tmp);
+                closest_index = find_closer_index(value_a, stackb[index_b], index_b, &tmp, closest_index);
             index_b++;
         }
         info = cost_for_closest(closest_index, size_b);
@@ -71,7 +71,7 @@ int get_final_cost(int index_a, int *stacka, int *stackb, int *size_a, int *size
 {
     t_cost total_cost_a;
     t_cost total_cost_b;
-    
+
     total_cost_a = calculate_cost_for_stack_a(index_a, size_a);
     total_cost_b= calculate_cost_for_stack_b(stacka[index_a], stackb, size_b);
     return calculate_total_cost(total_cost_a, total_cost_b);
@@ -86,24 +86,28 @@ int find_cheapest(int *stacka, int *size_a, int *stackb, int *size_b)
 
     index_a = 0;
     cost = INT_MAX;
+    cheapest = 0;  // Initialize cheapest to a valid starting value (e.g., index 0)
+
     while (index_a < *size_a)
     {
         final_cost = get_final_cost(index_a, stacka, stackb, size_a, size_b);
-        cheapest = cheapest_one(index_a, final_cost, &cost);
+        cheapest = cheapest_one(index_a, final_cost, &cost, cheapest);
         index_a++;
     }
     return (cheapest);
 }
 
-int find_correct_position(int *stacka, int *size_a, int value) 
+int find_correct_position(int *stacka, int *size_a, int value)
 {
     int i = 0;
     int closest_index;
     int tmp = INT_MAX;
+
+	closest_index = -1;
     while (i < *size_a)
     {
         if (value - stacka[i] < 0)
-            closest_index = find_closer_index(stacka[i], value, i, &tmp);
+            closest_index = find_closer_index(stacka[i], value, i, &tmp, closest_index);
         i++;
     }
     return (closest_index);
@@ -115,10 +119,10 @@ void push_to_stack_a(int *stacka, int *size_a, int *stackb, int *size_b)
     {
         int value_to_push = stackb[0];
         int position = find_correct_position(stacka, size_a, value_to_push);
-        
+
         if (position <= *size_a / 2)
         {
-            while (position > 0) 
+            while (position > 0)
             {
                 ft_rotate(stacka, size_a);
                 position--;
@@ -168,9 +172,66 @@ void minimum_to_top(int *stacka, int *size_a)
     }
 }
 
+void handle_rotations(t_cost cost_a, t_cost cost_b, int *stacka, int *size_a, int *stackb, int *size_b)
+{
+    // Perform synchronized rotations first
+    while (cost_a.cost > 0 && cost_b.cost > 0)
+    {
+        if (cost_a.operation == 'u' && cost_b.operation == 'u')
+        {
+            ft_rotate(stacka, size_a);
+            ft_rotate(stackb, size_b);
+            ft_printf("rr ");  // Both stacks rotate up
+            cost_a.cost--;
+            cost_b.cost--;
+        }
+        else if (cost_a.operation == 'd' && cost_b.operation == 'd')
+        {
+            ft_reverse(stacka, size_a);
+            ft_reverse(stackb, size_b);
+            ft_printf("rrr ");  // Both stacks rotate down
+            cost_a.cost--;
+            cost_b.cost--;
+        }
+        else
+        {
+            break;  // Exit if the operations no longer match
+        }
+    }
+
+    // Handle remaining rotations for stack A
+    for (int i = 0; i < cost_a.cost; i++)
+    {
+        if (cost_a.operation == 'u')
+        {
+            ft_rotate(stacka, size_a);
+            ft_printf("ra ");  // Rotate stack A up
+        }
+        else if (cost_a.operation == 'd')
+        {
+            ft_reverse(stacka, size_a);
+            ft_printf("rra ");  // Rotate stack A down
+        }
+    }
+
+    // Handle remaining rotations for stack B
+    for (int i = 0; i < cost_b.cost; i++)
+    {
+        if (cost_b.operation == 'u')
+        {
+            ft_rotate(stackb, size_b);
+            ft_printf("rb ");  // Rotate stack B up
+        }
+        else if (cost_b.operation == 'd')
+        {
+            ft_reverse(stackb, size_b);
+            ft_printf("rrb ");  // Rotate stack B down
+        }
+    }
+}
+
 void sort_all(int *stacka, int *size_a, int *stackb, int *size_b)
 {
-    int i;
     int cheap;
 
     ft_push(stacka, size_a, stackb, size_b);
@@ -184,82 +245,12 @@ void sort_all(int *stacka, int *size_a, int *stackb, int *size_b)
         t_cost cost_a = calculate_cost_for_stack_a(cheap, size_a);
         t_cost cost_b = calculate_cost_for_stack_b(stacka[cheap], stackb, size_b);
 
-        if (cost_a.cost > cost_b.cost)
-        {
-            i = 0;
-            while (i < cost_a.cost)
-            {
-                if (cost_a.operation == 'u')
-                {
-                    if (cost_a.operation == cost_b.operation)
-                    {
-                        ft_rotate(stacka, size_a);
-                        ft_rotate(stackb, size_b);
-                        ft_printf("rr ");
-                    }
-                    else
-                    {
-                        ft_rotate(stacka, size_a);
-                        ft_printf("ra ");
-                    }
-                }
-                else if (cost_a.operation == 'd')
-                {
-                    if (cost_a.operation == cost_b.operation)
-                    {
-                        ft_reverse(stacka, size_a);
-                        ft_reverse(stackb, size_b);
-                        ft_printf("rrr ");
-                    }
-                    else
-                    {
-                        ft_reverse(stacka, size_a);
-                        ft_printf("rra ");
-                    }
-                }
-                i++;
-            }
-        }
-        else
-        {
-            i = 0;
-            while (i < cost_b.cost)
-            {
-                if (cost_b.operation == 'u')
-                {
-                    if (cost_b.operation == cost_a.operation)
-                    {
-                        ft_rotate(stacka, size_a);
-                        ft_rotate(stackb, size_b);
-                        ft_printf("rr ");
-                    }
-                    else
-                    {
-                        ft_rotate(stackb, size_b);
-                        ft_printf("ra ");
-                    }
-                }
-                else if (cost_b.operation == 'd')
-                {
-                    if (cost_b.operation == cost_a.operation)
-                    {
-                        ft_reverse(stacka, size_a);
-                        ft_reverse(stackb, size_b);
-                        ft_printf("rrr ");
-                    }
-                    else
-                    {
-                        ft_reverse(stackb, size_b);
-                        ft_printf("rra ");
-                    }
-                }
-                i++;
-            }
-        }
+		handle_rotations(cost_a, cost_b, stacka, size_a, stackb, size_b);
+
         ft_push(stacka, size_a, stackb, size_b);
-        printf("pb ");
+		ft_printf("pb ");
     }
-/*     sort_3(stacka, size_a);
+ 	sort_3(stacka, size_a);
     push_to_stack_a(stacka, size_a, stackb, size_b);
-    minimum_to_top(stacka, size_a); */
+	minimum_to_top(stacka, size_a);
 }

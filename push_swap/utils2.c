@@ -7,8 +7,7 @@ t_cost cost_for_biggest(int biggest, int *size_b)
     if (biggest <= *size_b / 2)
     {
         info.cost = biggest;
-        if (biggest > 0)
-            info.operation = 'u';
+        info.operation = 'u';
     }
     else
     {
@@ -25,8 +24,7 @@ t_cost cost_for_closest(int closer_index, int *size_b)
     if (closer_index <= *size_b / 2)
     {
         info.cost = closer_index;
-        if (closer_index > 0)
-            info.operation = 'u';
+        info.operation = 'u';
     }
     else
     {
@@ -36,10 +34,8 @@ t_cost cost_for_closest(int closer_index, int *size_b)
     return (info);
 }
 
-int cheapest_one(int index_a, int total_cost, int *cost)
+int cheapest_one(int index_a, int total_cost, int *cost, int cheapest)
 {
-    int cheapest;
-
     if (*cost > total_cost)
     {
         *cost = total_cost;

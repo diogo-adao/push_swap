@@ -6,7 +6,7 @@
 /*   By: diolivei <diolivei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 14:01:01 by diolivei          #+#    #+#             */
-/*   Updated: 2024/09/17 14:14:31 by diolivei         ###   ########.fr       */
+/*   Updated: 2024/09/30 14:43:02 by diolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ void	sort_all(int *stacka, int *size_a, int *stackb, int *size_b);
 int find_biggest(int *stack, int *size);
 int find_smallest(int *stack, int *size);
 t_cost cost_for_biggest(int biggest, int *size_b);
-int find_closer_index(int current_a, int current_b, int index_b, int *tmp);
+int find_closer_index(int current_a, int current_b, int index_b, int *tmp, int closer_index);
 t_cost cost_for_closest(int closer_index, int *size_b);
-int cheapest_one(int index_a, int total_cost, int *cost);
+int cheapest_one(int index_a, int total_cost, int *cost, int cheapest);
 
 #endif

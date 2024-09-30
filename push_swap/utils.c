@@ -6,7 +6,7 @@
 /*   By: diolivei <diolivei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 14:36:40 by diolivei          #+#    #+#             */
-/*   Updated: 2024/09/04 15:30:07 by diolivei         ###   ########.fr       */
+/*   Updated: 2024/09/30 14:43:43 by diolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,9 @@ int find_smallest(int *stack, int *size)
     return (index);
 }
 
-int find_closer_index(int current_a, int current_b, int index_b, int *tmp)
+int find_closer_index(int current_a, int current_b, int index_b, int *tmp, int closer_index)
 {
     int diff;
-    int closer_index;
 
     diff = current_a - current_b;
     if (*tmp > diff)
