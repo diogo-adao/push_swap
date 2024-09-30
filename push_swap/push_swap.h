@@ -15,6 +15,11 @@
 
 # include "libft/libft.h"
 
+typedef struct {
+    int cost;
+    char operation;
+} t_cost;
+
 // Operations
 void	ft_swap(int *n1, int *n2, int *size);
 void	ft_push(int *stack1, int *size_1, int *stack2, int *size_2);
@@ -29,5 +34,13 @@ int		is_sorted(int *stack, int *size);
 void	sort_2(int *stack, int *size);
 void	sort_3(int *stack, int *size);
 void	sort_all(int *stacka, int *size_a, int *stackb, int *size_b);
+
+// Utils
+int find_biggest(int *stack, int *size);
+int find_smallest(int *stack, int *size);
+t_cost cost_for_biggest(int biggest, int *size_b);
+int find_closer_index(int current_a, int current_b, int index_b, int *tmp);
+t_cost cost_for_closest(int closer_index, int *size_b);
+int cheapest_one(int index_a, int total_cost, int *cost);
 
 #endif

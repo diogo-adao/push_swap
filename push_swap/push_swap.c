@@ -49,7 +49,7 @@ int	main(int argc, char *argv[])
 		}
 		push_swap(stacka, &size_a, stackb, &size_b);
 		i = 0;
-		ft_printf("stack A:\n");
+		ft_printf("\nstack A:\n");
 		while (i < size_a)
 		{
 			ft_printf("%d\n", stacka[i]);

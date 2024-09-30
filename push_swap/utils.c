@@ -12,25 +12,56 @@
 
 #include "push_swap.h"
 
-void	sort_2(int *stack, int *size)
+int find_biggest(int *stack, int *size)
 {
-	if (stack[0] > stack[1])
-	{
-		ft_printf("sa\n");
-		ft_swap(&stack[0], &stack[1], size);
-	}
-}
-
-int	is_sorted(int *stack, int *size)
-{
-	int	i;
+    int i;
+    int biggest_value;
+    int index;
 
 	i = 0;
-	while (i < *size - 1)
+	biggest_value = INT_MIN;
+	while(i < *size)
 	{
-		if (stack[i] > stack[i + 1])
-			return (0);
+		if (stack[i] > biggest_value)
+		{
+			biggest_value = stack[i];
+			index = i;
+		}
 		i++;
 	}
-	return (1);
+    return (index);
+}
+
+int find_smallest(int *stack, int *size)
+{
+    int i;
+    int smallest_value;
+    int index;
+
+	i = 0;
+	smallest_value = INT_MAX;
+	while (i < *size)
+	{
+		if (stack[i] < smallest_value)
+		{
+			smallest_value = stack[i];
+			index = i;
+		}
+		i++;
+	}
+    return (index);
+}
+
+int find_closer_index(int current_a, int current_b, int index_b, int *tmp)
+{
+    int diff;
+    int closer_index;
+
+    diff = current_a - current_b;
+    if (*tmp > diff)
+    {
+        *tmp = diff;
+        closer_index = index_b;
+    }
+    return (closer_index);
 }

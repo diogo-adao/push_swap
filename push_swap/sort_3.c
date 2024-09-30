@@ -71,20 +71,20 @@ int	print_sort_3(int *stack)
 	cases = sort_3_cases(stack);
 	if (cases == 1)
 	{
-		ft_printf("sa\n");
-		ft_printf("rra\n");
+		ft_printf("sa ");
+		ft_printf("rra ");
 	}
 	else if (cases == 2)
-		ft_printf("ra\n");
+		ft_printf("ra ");
 	else if (cases == 3)
 	{
-		ft_printf("sa\n");
-		ft_printf("ra\n");
+		ft_printf("sa ");
+		ft_printf("ra ");
 	}
 	else if (cases == 4)
-		ft_printf("rra\n");
+		ft_printf("rra ");
 	else if (cases == 5)
-		ft_printf("sa\n");
+		ft_printf("sa ");
 	return (cases);
 }
 
