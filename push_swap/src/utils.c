@@ -10,13 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int find_biggest(int *stack, int *size)
 {
     int i;
+	int index;
     int biggest_value;
-    int index;
 
 	i = 0;
 	biggest_value = INT_MIN;
@@ -35,8 +35,8 @@ int find_biggest(int *stack, int *size)
 int find_smallest(int *stack, int *size)
 {
     int i;
+	int index;
     int smallest_value;
-    int index;
 
 	i = 0;
 	smallest_value = INT_MAX;
@@ -52,9 +52,10 @@ int find_smallest(int *stack, int *size)
     return (index);
 }
 
-int find_closer_index(int current_a, int current_b, int index_b, int *tmp, int closer_index)
+int find_closer_index(int current_a, int current_b, int index_b, int *tmp)
 {
     int diff;
+	int closer_index;
 
     diff = current_a - current_b;
     if (*tmp > diff)
@@ -63,4 +64,36 @@ int find_closer_index(int current_a, int current_b, int index_b, int *tmp, int c
         closer_index = index_b;
     }
     return (closer_index);
+}
+
+int find_minimum_index(int min, int *size_a)
+{
+	int index;
+
+    if (min <= *size_a / 2)
+        index = min;
+    else
+        index = *size_a - min;
+    return (index);
+}
+
+int find_correct_position(int *stacka, int *size_a, int value)
+{
+    int i = 0;
+    int closest_index;
+    int tmp = INT_MAX;
+
+	closest_index = -1;
+	if ((value > stacka[find_biggest(stacka, size_a)]) || (value < stacka[find_smallest(stacka, size_a)]))
+        closest_index = find_minimum_index(find_smallest(stacka, size_a), size_a);
+    else
+    {
+        while (i < *size_a)
+        {
+            if (value - stacka[i] < 0)
+                closest_index = find_closer_index(stacka[i], value, i, &tmp);
+            i++;
+        }
+    }
+    return (closest_index);
 }

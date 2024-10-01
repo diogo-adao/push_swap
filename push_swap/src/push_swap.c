@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	push_swap(int *stacka, int *size_a, int *stackb, int *size_b)
 {
@@ -18,7 +18,7 @@ void	push_swap(int *stacka, int *size_a, int *stackb, int *size_b)
 	{
 		if (*size_a == 2)
 			sort_2(stacka, size_a);
-		if (*size_a == 3)
+		else if (*size_a == 3)
 			sort_3(stacka, size_a);
 		else
 			sort_all(stacka, size_a, stackb, size_b);
@@ -48,20 +48,6 @@ int	main(int argc, char *argv[])
 			i++;
 		}
 		push_swap(stacka, &size_a, stackb, &size_b);
-		i = 0;
-		ft_printf("\nstack A:\n");
-		while (i < size_a)
-		{
-			ft_printf("%d\n", stacka[i]);
-			i++;
-		}
-		i = 0;
-		ft_printf("stack B:\n");
-		while (i < size_b)
-		{
-			ft_printf("%d\n", stackb[i]);
-			i++;
-		}
 	}
 	free(stacka);
 	free(stackb);

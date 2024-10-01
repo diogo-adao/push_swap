@@ -16,7 +16,7 @@ CFLAGS = -Wall -Wextra -Werror
 LIBFT = libft/libft.a
 LIBFT_FLAGS = -Llibft -lft
 
-SRCS = $(wildcard *.c)
+SRCS = $(wildcard src/*.c)
 NAME = push_swap
 
 BOLD_PURPLE	=	\033[1;35m
