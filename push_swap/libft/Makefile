@@ -6,7 +6,7 @@
 #    By: diolivei <diolivei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/24 16:34:34 by diolivei          #+#    #+#              #
-#    Updated: 2024/07/16 15:46:26 by diolivei         ###   ########.fr        #
+#    Updated: 2024/10/01 18:02:51 by diolivei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 NAME = libft.a
 
-SRCS = ft_atoi.c ft_printf.c ft_printf_utils.c
+SRCS = $(wildcard *.c)
 
 OBJS = $(SRCS:.c=.o)
 

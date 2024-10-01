@@ -6,7 +6,7 @@
 /*   By: diolivei <diolivei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 16:37:07 by diolivei          #+#    #+#             */
-/*   Updated: 2024/09/17 14:36:36 by diolivei         ###   ########.fr       */
+/*   Updated: 2024/10/01 19:39:03 by diolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ int	main(int argc, char *argv[])
 	int	size_b;
 	int	i;
 
-	stacka = (int *)malloc((argc - 1) * sizeof(int));
-	stackb = (int *)malloc((argc - 1) * sizeof(int));
+	stacka = (int *)malloc((argc) * sizeof(int));
+	stackb = (int *)malloc((argc) * sizeof(int));
 	size_a = argc - 1;
 	size_b = 0;
 	i = 0;
@@ -51,5 +51,4 @@ int	main(int argc, char *argv[])
 	}
 	free(stacka);
 	free(stackb);
-	return (0);
 }

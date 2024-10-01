@@ -6,7 +6,7 @@
 /*   By: diolivei <diolivei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 14:37:00 by diolivei          #+#    #+#             */
-/*   Updated: 2024/09/17 14:35:39 by diolivei         ###   ########.fr       */
+/*   Updated: 2024/10/01 18:39:14 by diolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,20 +71,20 @@ int	print_sort_3(int *stack)
 	cases = sort_3_cases(stack);
 	if (cases == 1)
 	{
-		ft_printf("sa ");
-		ft_printf("rra ");
+		ft_printf("sa\n");
+		ft_printf("rra\n");
 	}
 	else if (cases == 2)
-		ft_printf("ra ");
+		ft_printf("ra\n");
 	else if (cases == 3)
 	{
-		ft_printf("sa ");
-		ft_printf("ra ");
+		ft_printf("sa\n");
+		ft_printf("ra\n");
 	}
 	else if (cases == 4)
-		ft_printf("rra ");
+		ft_printf("rra\n");
 	else if (cases == 5)
-		ft_printf("sa ");
+		ft_printf("sa\n");
 	return (cases);
 }
 
