@@ -6,7 +6,7 @@
 /*   By: diolivei <diolivei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 14:01:08 by diolivei          #+#    #+#             */
-/*   Updated: 2024/10/01 19:54:56 by diolivei         ###   ########.fr       */
+/*   Updated: 2024/10/02 18:23:06 by diolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	final_sort(t_stacks *stacks)
 		handle_stack_a(&cost_a, stacks->stacka, stacks->size_a);
 		handle_stack_b(&cost_b, stacks->stackb, stacks->size_b);
 		ft_push(stacks->stacka, stacks->size_a, stacks->stackb, stacks->size_b);
-		printf("pb\n");
+		write(1, "pb\n", 3);
 	}
 }
 
@@ -50,7 +50,8 @@ void	sort_all(int *stacka, int *size_a, int *stackb, int *size_b)
 	{
 		ft_push(stacka, size_a, stackb, size_b);
 		ft_push(stacka, size_a, stackb, size_b);
-		ft_printf("pb\npb\n");
+		ft_printf("pb\n");
+		ft_printf("pb\n");
 	}
 	final_sort(&stacks);
 	sort_3(stacka, size_a);
