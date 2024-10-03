@@ -6,7 +6,7 @@
 /*   By: diolivei <diolivei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 16:37:07 by diolivei          #+#    #+#             */
-/*   Updated: 2024/10/02 18:37:59 by diolivei         ###   ########.fr       */
+/*   Updated: 2024/10/03 15:33:02 by diolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,5 @@ int	main(int argc, char *argv[])
 	}
 	free(stacka);
 	free(stackb);
+	return (0);
 }
