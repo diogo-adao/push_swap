@@ -6,7 +6,7 @@
 /*   By: diolivei <diolivei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 19:58:13 by diolivei          #+#    #+#             */
-/*   Updated: 2024/10/02 17:05:53 by diolivei         ###   ########.fr       */
+/*   Updated: 2024/10/03 16:53:05 by diolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,8 @@ void	rotate_stack_a(int *stacka, int *size_a, int position)
 
 void	minimum_to_top(int *stacka, int *size_a)
 {
-	int	i;
 	int	min;
 
-	i = 0;
 	min = find_smallest(stacka, size_a);
 	if (min <= *size_a / 2)
 	{
