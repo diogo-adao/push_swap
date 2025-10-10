@@ -1,4 +1,45 @@
 ![image](https://github.com/diogo-adao/libft/assets/142692185/63ed68a2-74a6-4958-8d49-bf8d36a2d98e)
 
-# push_swap
-**This project will make you sort data on a stack, with a limited set of instructions, using the lowest possible number of actions. To succeed you’ll have to manipulate various types of algorithms and choose the most appropriate solution (out of many) for an optimized data sorting.**
+# 🔢 Push_Swap
+
+A program that sorts a stack of integers using only a restricted set of stack operations, developed in **C** as part of the **42 curriculum**.  
+This project focuses on **algorithm optimization**, **stack manipulation**, and **problem-solving under constraints**.  
+The sorting logic is based on the **Turk algorithm**.
+
+
+## 📖 Overview
+
+`push_swap` sorts a stack of integers using **two stacks (A and B)** and a limited set of operations:
+
+- **Swap** (`sa`, `sb`, `ss`) – swap the first two elements of a stack  
+- **Push** (`pa`, `pb`) – move the top element from one stack to the other  
+- **Rotate** (`ra`, `rb`, `rr`) – shift all elements up by one  
+- **Reverse Rotate** (`rra`, `rrb`, `rrr`) – shift all elements down by one  
+
+The challenge is to **sort numbers with as few operations as possible**, and my implementation uses the **Turk algorithm** to optimize moves.
+
+
+## ⚙️ Features
+
+- Sorting integers using **two stacks** and a limited set of operations  
+- Algorithm based on **Turk sorting strategy**  
+- Validates input: ensures only integers and no duplicates  
+- Outputs the sequence of stack operations needed to sort the stack  
+
+
+## 🧠 Key Concepts
+
+- **Stacks** – using two stacks (A and B) for sorting  
+- **Turk algorithm** – a specific sorting strategy to reduce the number of operations  
+- **Pointer manipulation** – dynamically managing stack elements  
+- **Input validation** – handling errors like duplicates or invalid numbers  
+- **Command-line programming** – parsing arguments and outputting operations  
+
+
+## 🧩 Usage
+
+### 1. 🛠️ Build the project
+```bash
+make
+
+
