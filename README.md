@@ -4,7 +4,6 @@
 
 A program that sorts a stack of integers using only a restricted set of stack operations, developed in **C** as part of the **42 curriculum**.  
 This project focuses on **algorithm optimization**, **stack manipulation**, and **problem-solving under constraints**.  
-The sorting logic is based on the **Turk algorithm**.
 
 
 ## 📖 Overview
