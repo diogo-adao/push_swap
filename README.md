@@ -15,7 +15,7 @@ This project focuses on **algorithm optimization**, **stack manipulation**, and 
 - **Rotate** (`ra`, `rb`, `rr`) – shift all elements up by one  
 - **Reverse Rotate** (`rra`, `rrb`, `rrr`) – shift all elements down by one  
 
-The challenge is to **sort numbers with as few operations as possible**, and my implementation uses the **Turk algorithm** to optimize moves.
+The challenge is to **sort numbers with as few operations as possible**.
 
 
 ## ⚙️ Features
