@@ -36,10 +36,23 @@ The challenge is to **sort numbers with as few operations as possible**, and my 
 - **Command-line programming** – parsing arguments and outputting operations  
 
 
-## 🧩 Usage
+## 🧩 Installation & Usage
 
-### 1. 🛠️ Build the project
 ```bash
+# Clone the repository
+git clone https://github.com/diogo-adao/push_swap.git
+
+# Go to the folder
+cd push_swap && cd push_swap
+
+# Build the program
 make
+
+# Run it
+./push_swap <numbers>
+```
+
+## 👨‍💻 Author
+[Diogo Adão](https://github.com/diogo-adao)
 
 
